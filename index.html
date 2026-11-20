@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CAIP — Certified AI Professional | Profissional Certificado em IA Aplicada</title>
+  <meta name="description" content="A primeira certificação brasileira oficial em IA Aplicada, Automação e Agentes Digitais. Para quem se recusa a virar obsoleto.">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://inematds.github.io/prof2031CAIP/">
+  <meta property="og:title" content="CAIP — Certified AI Professional">
+  <meta property="og:description" content="A primeira certificação brasileira oficial em IA Aplicada, Automação e Agentes Digitais.">
+  <meta property="og:image" content="https://inematds.github.io/prof2031CAIP/assets/cover-caip.png">
+  <meta property="og:image:width" content="1536">
+  <meta property="og:image:height" content="1024">
+  <meta property="og:locale" content="pt_BR">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="CAIP — Certified AI Professional">
+  <meta name="twitter:description" content="A primeira certificação brasileira oficial em IA Aplicada, Automação e Agentes Digitais.">
+  <meta name="twitter:image" content="https://inematds.github.io/prof2031CAIP/assets/cover-caip.png">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#FACC15',
+            dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' }
+          }
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { background-color: #111827; }
+
+    /* Light mode - base */
+    html:not(.dark) body { background-color: #f8fafc; }
+    html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+    html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+    html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+    html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+    html:not(.dark) .text-neutral-100 { color: #111827; }
+    html:not(.dark) .text-neutral-300 { color: #4b5563; }
+    html:not(.dark) .text-neutral-400 { color: #6b7280; }
+    html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+    html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+
+    /* Light mode - cores de TODAS as trilhas (landing usa todas) */
+    html:not(.dark) .text-emerald-400 { color: #059669; }
+    html:not(.dark) .bg-emerald-500\/20 { background-color: rgba(5, 150, 105, 0.12); }
+    html:not(.dark) .bg-emerald-500\/10 { background-color: rgba(5, 150, 105, 0.08); }
+    html:not(.dark) .border-emerald-500\/30 { border-color: rgba(5, 150, 105, 0.25); }
+    html:not(.dark) .hover\:text-emerald-400:hover { color: #059669; }
+    html:not(.dark) .hover\:bg-emerald-500\/10:hover { background-color: rgba(5, 150, 105, 0.08); }
+    html:not(.dark) .group:hover .group-hover\:text-emerald-400 { color: #059669; }
+
+    html:not(.dark) .text-blue-400 { color: #2563eb; }
+    html:not(.dark) .bg-blue-500\/20 { background-color: rgba(37, 99, 235, 0.12); }
+    html:not(.dark) .bg-blue-500\/10 { background-color: rgba(37, 99, 235, 0.08); }
+    html:not(.dark) .border-blue-500\/30 { border-color: rgba(37, 99, 235, 0.25); }
+    html:not(.dark) .hover\:text-blue-400:hover { color: #2563eb; }
+    html:not(.dark) .hover\:bg-blue-500\/10:hover { background-color: rgba(37, 99, 235, 0.08); }
+    html:not(.dark) .group:hover .group-hover\:text-blue-400 { color: #2563eb; }
+
+    html:not(.dark) .text-purple-400 { color: #7c3aed; }
+    html:not(.dark) .bg-purple-500\/20 { background-color: rgba(124, 58, 237, 0.12); }
+    html:not(.dark) .bg-purple-500\/10 { background-color: rgba(124, 58, 237, 0.08); }
+    html:not(.dark) .border-purple-500\/30 { border-color: rgba(124, 58, 237, 0.25); }
+    html:not(.dark) .hover\:text-purple-400:hover { color: #7c3aed; }
+    html:not(.dark) .hover\:bg-purple-500\/10:hover { background-color: rgba(124, 58, 237, 0.08); }
+    html:not(.dark) .group:hover .group-hover\:text-purple-400 { color: #7c3aed; }
+
+    html:not(.dark) .text-amber-400 { color: #92400e; }
+    html:not(.dark) .bg-amber-500\/20 { background-color: rgba(217, 119, 6, 0.12); }
+    html:not(.dark) .bg-amber-500\/10 { background-color: rgba(217, 119, 6, 0.08); }
+    html:not(.dark) .border-amber-500\/30 { border-color: rgba(217, 119, 6, 0.25); }
+    html:not(.dark) .hover\:text-amber-400:hover { color: #92400e; }
+    html:not(.dark) .hover\:bg-amber-500\/10:hover { background-color: rgba(217, 119, 6, 0.08); }
+    html:not(.dark) .group:hover .group-hover\:text-amber-400 { color: #92400e; }
+
+    html:not(.dark) .text-teal-400 { color: #0d9488; }
+    html:not(.dark) .bg-teal-500\/20 { background-color: rgba(13, 148, 136, 0.12); }
+    html:not(.dark) .bg-teal-500\/10 { background-color: rgba(13, 148, 136, 0.08); }
+    html:not(.dark) .border-teal-500\/30 { border-color: rgba(13, 148, 136, 0.25); }
+    html:not(.dark) .hover\:text-teal-400:hover { color: #0d9488; }
+    html:not(.dark) .hover\:bg-teal-500\/10:hover { background-color: rgba(13, 148, 136, 0.08); }
+    html:not(.dark) .group:hover .group-hover\:text-teal-400 { color: #0d9488; }
+
+    html:not(.dark) .text-rose-400 { color: #9f1239; }
+    html:not(.dark) .bg-rose-500\/20 { background-color: rgba(225, 29, 72, 0.12); }
+    html:not(.dark) .bg-rose-500\/10 { background-color: rgba(225, 29, 72, 0.08); }
+    html:not(.dark) .border-rose-500\/30 { border-color: rgba(225, 29, 72, 0.25); }
+    html:not(.dark) .hover\:text-rose-400:hover { color: #9f1239; }
+    html:not(.dark) .hover\:bg-rose-500\/10:hover { background-color: rgba(225, 29, 72, 0.08); }
+    html:not(.dark) .group:hover .group-hover\:text-rose-400 { color: #9f1239; }
+
+    /* Light mode - remove gradientes */
+    html:not(.dark) [class*="bg-gradient-to"] { background-image: none !important; }
+
+    /* Light mode - cores especiais */
+    html:not(.dark) .text-primary { color: #a16207; }
+    html:not(.dark) .bg-primary\/10 { background-color: rgba(161, 98, 7, 0.08); }
+    html:not(.dark) .bg-primary\/20 { background-color: rgba(161, 98, 7, 0.12); }
+    html:not(.dark) .border-primary\/30 { border-color: rgba(161, 98, 7, 0.25); }
+    html:not(.dark) .border-primary\/40 { border-color: rgba(161, 98, 7, 0.25); }
+    html:not(.dark) .text-sky-400 { color: #0369a1; }
+    html:not(.dark) .text-yellow-400 { color: #a16207; }
+    html:not(.dark) .hover\:text-sky-300:hover { color: #0284c7; }
+    html:not(.dark) .hover\:text-yellow-300:hover { color: #854d0e; }
+
+    /* Light mode - nav */
+    html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255, 255, 255, 0.95); }
+  </style>
+</head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen">
+
+  <!-- NAVIGATION -->
+  <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-14">
+        <div class="flex items-center space-x-4">
+          <a href="index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300">
+            <span class="text-2xl">🎓</span>
+            <span class="font-bold text-lg hidden sm:inline">CAIP</span>
+          </a>
+          <span class="text-neutral-600">|</span>
+          <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
+        </div>
+        <div class="flex items-center space-x-1 sm:space-x-2">
+          <a href="#trilhas" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-primary hover:bg-primary/10 transition-colors">Trilhas</a>
+          <a href="#metodo" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-primary hover:bg-primary/10 transition-colors hidden sm:inline-block">Método</a>
+          <a href="#perfis" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-primary hover:bg-primary/10 transition-colors hidden sm:inline-block">Para quem</a>
+          <a href="#certificacao" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-primary hover:bg-primary/10 transition-colors hidden md:inline-block">Certificação</a>
+          <button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2">
+            <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+            </svg>
+            <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="bg-gradient-to-br from-primary/10 via-dark-800 to-dark-900 py-12 sm:py-16 border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <!-- Capa visual -->
+      <div class="mb-10 rounded-2xl overflow-hidden border border-dark-600 shadow-2xl shadow-primary/5">
+        <img src="assets/cover-caip.png" alt="CAIP — Certified AI Professional: Profissional Certificado em Inteligência Artificial Aplicada" class="w-full h-auto block" loading="eager" fetchpriority="high">
+      </div>
+
+      <span class="inline-block px-3 py-1 bg-primary/20 text-primary text-xs font-semibold rounded-full mb-6 border border-primary/30">
+        CERTIFICAÇÃO PROFISSIONAL · TURMA 2026
+      </span>
+      <h1 class="text-3xl sm:text-4xl font-bold mb-6 leading-tight max-w-3xl">
+        A primeira certificação brasileira oficial em <span class="text-primary">IA Aplicada, Automação e Agentes Digitais</span>.
+      </h1>
+      <p class="text-lg text-neutral-400 max-w-3xl mb-10">
+        Para quem se recusa a virar obsoleto quando a inteligência ficar barata como eletricidade.
+      </p>
+
+      <!-- Stats -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-3xl mb-10">
+        <div class="bg-dark-800/50 rounded-lg p-4 border border-dark-600">
+          <div class="text-2xl font-bold text-primary">6</div>
+          <div class="text-xs text-neutral-400 mt-1">Trilhas certificáveis</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-4 border border-dark-600">
+          <div class="text-2xl font-bold text-primary">36</div>
+          <div class="text-xs text-neutral-400 mt-1">Módulos práticos</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-4 border border-dark-600">
+          <div class="text-2xl font-bold text-primary">~60h</div>
+          <div class="text-xs text-neutral-400 mt-1">Programa completo</div>
+        </div>
+        <div class="bg-dark-800/50 rounded-lg p-4 border border-dark-600">
+          <div class="text-2xl font-bold text-primary">∞</div>
+          <div class="text-xs text-neutral-400 mt-1">Comunidade vitalícia</div>
+        </div>
+      </div>
+
+      <!-- CTAs -->
+      <div class="flex flex-col sm:flex-row gap-4">
+        <a href="#trilhas" class="inline-flex items-center justify-center px-8 py-4 bg-primary text-dark-900 rounded-lg font-bold hover:bg-yellow-300 transition-colors">
+          Ver o programa completo →
+        </a>
+        <a href="#certificacao" class="inline-flex items-center justify-center px-8 py-4 bg-dark-700 border border-dark-600 text-neutral-100 rounded-lg font-semibold hover:bg-dark-600 transition-colors">
+          Como funciona a certificação
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+
+    <!-- POR QUE EXISTE -->
+    <section class="mb-24">
+      <div class="max-w-4xl">
+        <span class="inline-block px-3 py-1 bg-dark-700 text-neutral-400 text-xs font-semibold rounded-full mb-4 uppercase tracking-wider">
+          Por que existe
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-bold mb-6">A inteligência virou commodity. Você ainda não.</h2>
+        <div class="space-y-4 text-lg text-neutral-300 leading-relaxed">
+          <p>Em 2026 a discussão deixou de ser <em class="text-primary">se</em> a IA vai mudar seu trabalho. É <em class="text-primary">quando</em> — e o "quando" já chegou.</p>
+          <p>Profissões inteiras estão sendo redesenhadas. Quem aprendeu a <strong class="text-primary">comandar IA</strong> ficou 10x mais produtivo. Quem ficou no modo execução virou commodity. E ninguém te avisou.</p>
+          <p>O <strong class="text-primary">CAIP</strong> é a credencial oficial de quem fez essa virada. Não é um curso de prompt. É uma certificação profissional reconhecível — que entra no seu currículo, no LinkedIn, na assinatura de e-mail. E que sua empresa paga pra ter no time.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRILHAS -->
+    <section id="trilhas" class="mb-24">
+      <span class="inline-block px-3 py-1 bg-dark-700 text-neutral-400 text-xs font-semibold rounded-full mb-4 uppercase tracking-wider">
+        Programa
+      </span>
+      <h2 class="text-3xl sm:text-4xl font-bold mb-4">6 trilhas. 6 selos. 1 certificação.</h2>
+      <p class="text-lg text-neutral-400 mb-12 max-w-3xl">Cada trilha entrega um selo independente. Complete as 5 primeiras para obter o <strong class="text-primary">CAIP Certified</strong>. A 6ª (Especializações) eleva você a <strong class="text-primary">CAIP Specialist</strong>.</p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+        <!-- T1 Emerald -->
+        <a href="curso/trilha1/index.html" class="group bg-dark-800 rounded-xl border border-dark-600 hover:border-emerald-500/30 p-8 transition-all">
+          <div class="flex items-center justify-between mb-4">
+            <span class="inline-block px-3 py-1 bg-emerald-500/20 text-emerald-400 text-xs font-semibold rounded-full">TRILHA 1</span>
+            <span class="text-xs text-neutral-500 uppercase tracking-wider">Foundation</span>
+          </div>
+          <h3 class="text-2xl font-bold mb-2 group-hover:text-emerald-400 transition-colors">🌱 Fundamentos de IA Aplicada</h3>
+          <p class="text-neutral-400 mb-4">O panorama, o vocabulário, o mapa pessoal de obsolescência. Aqui você sai do pânico e entra no jogo.</p>
+          <div class="flex items-center justify-between text-sm">
+            <span class="text-neutral-500">6 módulos · ~10h</span>
+            <span class="text-emerald-400 font-semibold">CAIP Foundation →</span>
+          </div>
+        </a>
+
+        <!-- T2 Blue -->
+        <a href="curso/trilha2/index.html" class="group bg-dark-800 rounded-xl border border-dark-600 hover:border-blue-500/30 p-8 transition-all">
+          <div class="flex items-center justify-between mb-4">
+            <span class="inline-block px-3 py-1 bg-blue-500/20 text-blue-400 text-xs font-semibold rounded-full">TRILHA 2</span>
+            <span class="text-xs text-neutral-500 uppercase tracking-wider">Command</span>
+          </div>
+          <h3 class="text-2xl font-bold mb-2 group-hover:text-blue-400 transition-colors">🎯 Comando e Engenharia de Contexto</h3>
+          <p class="text-neutral-400 mb-4">A habilidade base. Briefing, contexto, julgamento. A diferença entre pedir e comandar IA com critério.</p>
+          <div class="flex items-center justify-between text-sm">
+            <span class="text-neutral-500">6 módulos · ~10h</span>
+            <span class="text-blue-400 font-semibold">CAIP Prompt Engineer →</span>
+          </div>
+        </a>
+
+        <!-- T3 Purple -->
+        <a href="curso/trilha3/index.html" class="group bg-dark-800 rounded-xl border border-dark-600 hover:border-purple-500/30 p-8 transition-all">
+          <div class="flex items-center justify-between mb-4">
+            <span class="inline-block px-3 py-1 bg-purple-500/20 text-purple-400 text-xs font-semibold rounded-full">TRILHA 3</span>
+            <span class="text-xs text-neutral-500 uppercase tracking-wider">Agents</span>
+          </div>
+          <h3 class="text-2xl font-bold mb-2 group-hover:text-purple-400 transition-colors">🤖 Agentes e Automação</h3>
+          <p class="text-neutral-400 mb-4">Sai do chat. Constrói fluxos que executam: pesquisa, redação, planilhas, e-mail, dashboard, integrações.</p>
+          <div class="flex items-center justify-between text-sm">
+            <span class="text-neutral-500">6 módulos · ~12h</span>
+            <span class="text-purple-400 font-semibold">CAIP Agent Builder →</span>
+          </div>
+        </a>
+
+        <!-- T4 Amber -->
+        <a href="curso/trilha4/index.html" class="group bg-dark-800 rounded-xl border border-dark-600 hover:border-amber-500/30 p-8 transition-all">
+          <div class="flex items-center justify-between mb-4">
+            <span class="inline-block px-3 py-1 bg-amber-500/20 text-amber-400 text-xs font-semibold rounded-full">TRILHA 4</span>
+            <span class="text-xs text-neutral-500 uppercase tracking-wider">Practice</span>
+          </div>
+          <h3 class="text-2xl font-bold mb-2 group-hover:text-amber-400 transition-colors">⚡ Aplicação Profissional</h3>
+          <p class="text-neutral-400 mb-4">Trilha bifurcada por perfil: jovem, CLT, inovador ou empreendedor. Mesma base, casos diferentes.</p>
+          <div class="flex items-center justify-between text-sm">
+            <span class="text-neutral-500">6 módulos · ~12h</span>
+            <span class="text-amber-400 font-semibold">CAIP Practitioner →</span>
+          </div>
+        </a>
+
+        <!-- T5 Teal -->
+        <a href="curso/trilha5/index.html" class="group bg-dark-800 rounded-xl border border-dark-600 hover:border-teal-500/30 p-8 transition-all">
+          <div class="flex items-center justify-between mb-4">
+            <span class="inline-block px-3 py-1 bg-teal-500/20 text-teal-400 text-xs font-semibold rounded-full">TRILHA 5</span>
+            <span class="text-xs text-neutral-500 uppercase tracking-wider">Capstone</span>
+          </div>
+          <h3 class="text-2xl font-bold mb-2 group-hover:text-teal-400 transition-colors">🚀 Projeto Certificador</h3>
+          <p class="text-neutral-400 mb-4">Você sai com sistema rodando, caso real entregue e narrativa pública. Não é certificado, é prova.</p>
+          <div class="flex items-center justify-between text-sm">
+            <span class="text-neutral-500">6 módulos · ~14h</span>
+            <span class="text-teal-400 font-semibold">CAIP Certified →</span>
+          </div>
+        </a>
+
+        <!-- T6 Rose -->
+        <a href="curso/trilha6/index.html" class="group bg-dark-800 rounded-xl border border-dark-600 hover:border-rose-500/30 p-8 transition-all">
+          <div class="flex items-center justify-between mb-4">
+            <span class="inline-block px-3 py-1 bg-rose-500/20 text-rose-400 text-xs font-semibold rounded-full">TRILHA 6</span>
+            <span class="text-xs text-neutral-500 uppercase tracking-wider">Specialist</span>
+          </div>
+          <h3 class="text-2xl font-bold mb-2 group-hover:text-rose-400 transition-colors">💎 Especializações (Imersões)</h3>
+          <p class="text-neutral-400 mb-4">Builder, Enterprise, Operations. Imersões presenciais que elevam você a CAIP Specialist — e depois a Master.</p>
+          <div class="flex items-center justify-between text-sm">
+            <span class="text-neutral-500">3 imersões · 2-3 dias cada</span>
+            <span class="text-rose-400 font-semibold">CAIP Specialist →</span>
+          </div>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- MÉTODO -->
+    <section id="metodo" class="mb-24">
+      <span class="inline-block px-3 py-1 bg-dark-700 text-neutral-400 text-xs font-semibold rounded-full mb-4 uppercase tracking-wider">
+        Método
+      </span>
+      <h2 class="text-3xl sm:text-4xl font-bold mb-4">Não ensinamos ferramenta. Ensinamos comando.</h2>
+      <p class="text-lg text-neutral-400 mb-12 max-w-3xl">Ferramenta muda toda semana. Comando não. Esses são os 5 princípios que sustentam tudo no programa.</p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+          <div class="flex items-center justify-center w-12 h-12 rounded-full bg-primary/20 text-primary font-bold text-xl mb-4">1</div>
+          <h3 class="text-xl font-bold mb-2">Modo comando, não execução</h3>
+          <p class="text-neutral-400 text-sm">Você deixa de ser quem executa e passa a ser quem orquestra. Define objetivo, contexto, critério — e julga o resultado.</p>
+        </div>
+
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+          <div class="flex items-center justify-center w-12 h-12 rounded-full bg-primary/20 text-primary font-bold text-xl mb-4">2</div>
+          <h3 class="text-xl font-bold mb-2">Contexto antes de prompt</h3>
+          <p class="text-neutral-400 text-sm">A maior parte do resultado vem do contexto que você alimenta. Memória organizacional, documentação, exemplos. Sem isso, a IA chuta.</p>
+        </div>
+
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+          <div class="flex items-center justify-center w-12 h-12 rounded-full bg-primary/20 text-primary font-bold text-xl mb-4">3</div>
+          <h3 class="text-xl font-bold mb-2">Julgamento é a nova competência</h3>
+          <p class="text-neutral-400 text-sm">A IA produz opções. Você decide o que presta. Curadoria, gosto, critério técnico — o human premium mora aqui.</p>
+        </div>
+
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+          <div class="flex items-center justify-center w-12 h-12 rounded-full bg-primary/20 text-primary font-bold text-xl mb-4">4</div>
+          <h3 class="text-xl font-bold mb-2">Fluxo, não tarefa</h3>
+          <p class="text-neutral-400 text-sm">Uma tarefa repetitiva vira fluxo automatizado. Você projeta sistemas, não responde e-mails. Multiplica seu tempo por 10.</p>
+        </div>
+
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+          <div class="flex items-center justify-center w-12 h-12 rounded-full bg-primary/20 text-primary font-bold text-xl mb-4">5</div>
+          <h3 class="text-xl font-bold mb-2">Entrega real, não certificado</h3>
+          <p class="text-neutral-400 text-sm">O CAIP exige um projeto real entregue. Aumento, MVP, automação que devolve horas — algo verificável no mundo.</p>
+        </div>
+
+        <div class="bg-gradient-to-br from-primary/10 to-dark-800 rounded-xl border border-primary/30 p-6">
+          <div class="text-3xl mb-3">🎓</div>
+          <h3 class="text-xl font-bold mb-2 text-primary">Selo verificável</h3>
+          <p class="text-neutral-400 text-sm">Cada CAIP tem código único e página pública de verificação. Empresa confere. LinkedIn reconhece. Currículo carrega peso real.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- PARA QUEM -->
+    <section id="perfis" class="mb-24">
+      <span class="inline-block px-3 py-1 bg-dark-700 text-neutral-400 text-xs font-semibold rounded-full mb-4 uppercase tracking-wider">
+        Para quem é
+      </span>
+      <h2 class="text-3xl sm:text-4xl font-bold mb-4">4 perfis. Mesma habilidade. Aplicações diferentes.</h2>
+      <p class="text-lg text-neutral-400 mb-12 max-w-3xl">A trilha base é igual pra todo mundo. A Trilha 4 bifurca em casos por perfil — e cada um sai com um sistema próprio rodando.</p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-8">
+          <div class="text-3xl mb-3">🚀</div>
+          <h3 class="text-xl font-bold mb-2">Jovem que quer 7 dígitos</h3>
+          <p class="text-neutral-400 mb-4">Você não quer um CLT. Quer construir. O CAIP te dá a base pra montar uma operação de 1 pessoa que entrega como uma equipe de 10.</p>
+          <p class="text-sm text-neutral-500"><strong class="text-primary">Saída esperada:</strong> primeiro produto/serviço pago, audiência inicial, credencial pra justificar preço.</p>
+        </div>
+
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-8">
+          <div class="text-3xl mb-3">💼</div>
+          <h3 class="text-xl font-bold mb-2">Profissional em operação</h3>
+          <p class="text-neutral-400 mb-4">Você sente o chão tremendo. Sua função pode mudar ou sumir em 24 meses. O CAIP te transforma na pessoa que ninguém demite — porque você devolve 20h/semana pra empresa.</p>
+          <p class="text-sm text-neutral-500"><strong class="text-primary">Saída esperada:</strong> sistema pessoal rodando no trabalho, portfólio público, plano de promoção ou freela paralelo.</p>
+        </div>
+
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-8">
+          <div class="text-3xl mb-3">💡</div>
+          <h3 class="text-xl font-bold mb-2">Inovador</h3>
+          <p class="text-neutral-400 mb-4">Você tem 10 ideias na gaveta e tempo zero pra testar. Com agentes, você protótipa em 7 dias o que antes levava 6 meses.</p>
+          <p class="text-sm text-neutral-500"><strong class="text-primary">Saída esperada:</strong> MVP funcional testado com usuários reais, validação ou pivot baseado em dado.</p>
+        </div>
+
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-8">
+          <div class="text-3xl mb-3">🏢</div>
+          <h3 class="text-xl font-bold mb-2">Empreendedor</h3>
+          <p class="text-neutral-400 mb-4">Sua operação tem gordura. Time inflado, processo manual, custo fixo alto. O CAIP corta 60% do operacional sem demitir — e libera você pra crescer.</p>
+          <p class="text-sm text-neutral-500"><strong class="text-primary">Saída esperada:</strong> 3 fluxos críticos automatizados, mapa de redução de custo, plano de escala 90 dias.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CERTIFICAÇÃO -->
+    <section id="certificacao" class="mb-24">
+      <span class="inline-block px-3 py-1 bg-dark-700 text-neutral-400 text-xs font-semibold rounded-full mb-4 uppercase tracking-wider">
+        Certificação
+      </span>
+      <h2 class="text-3xl sm:text-4xl font-bold mb-4">Como funciona a credencial CAIP</h2>
+      <p class="text-lg text-neutral-400 mb-12 max-w-3xl">Não é diploma de papel. É uma credencial digital com código único, página de verificação pública e validade renovável.</p>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-8">
+          <h3 class="text-2xl font-bold mb-6">🎯 Os 6 selos</h3>
+          <div class="space-y-4">
+            <div class="flex items-center space-x-3 pb-3 border-b border-dark-600">
+              <span class="inline-block px-2 py-1 bg-emerald-500/20 text-emerald-400 text-xs font-bold rounded">T1</span>
+              <span class="text-sm flex-1">CAIP Foundation</span>
+              <span class="text-xs text-neutral-500">Trilha 1</span>
+            </div>
+            <div class="flex items-center space-x-3 pb-3 border-b border-dark-600">
+              <span class="inline-block px-2 py-1 bg-blue-500/20 text-blue-400 text-xs font-bold rounded">T2</span>
+              <span class="text-sm flex-1">CAIP Prompt Engineer</span>
+              <span class="text-xs text-neutral-500">Trilha 2</span>
+            </div>
+            <div class="flex items-center space-x-3 pb-3 border-b border-dark-600">
+              <span class="inline-block px-2 py-1 bg-purple-500/20 text-purple-400 text-xs font-bold rounded">T3</span>
+              <span class="text-sm flex-1">CAIP Agent Builder</span>
+              <span class="text-xs text-neutral-500">Trilha 3</span>
+            </div>
+            <div class="flex items-center space-x-3 pb-3 border-b border-dark-600">
+              <span class="inline-block px-2 py-1 bg-amber-500/20 text-amber-400 text-xs font-bold rounded">T4</span>
+              <span class="text-sm flex-1">CAIP Practitioner</span>
+              <span class="text-xs text-neutral-500">Trilha 4</span>
+            </div>
+            <div class="flex items-center space-x-3 pb-3 border-b border-dark-600">
+              <span class="inline-block px-2 py-1 bg-teal-500/20 text-teal-400 text-xs font-bold rounded">T5</span>
+              <span class="text-sm flex-1 font-semibold text-teal-400">CAIP Certified ⭐</span>
+              <span class="text-xs text-neutral-500">Trilha 5</span>
+            </div>
+            <div class="flex items-center space-x-3">
+              <span class="inline-block px-2 py-1 bg-rose-500/20 text-rose-400 text-xs font-bold rounded">T6</span>
+              <span class="text-sm flex-1">CAIP Specialist · Master</span>
+              <span class="text-xs text-neutral-500">Trilha 6</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-gradient-to-br from-primary/10 to-dark-800 rounded-xl border border-primary/30 p-8">
+          <h3 class="text-2xl font-bold mb-6 text-primary">📋 Como usar a credencial</h3>
+          <div class="space-y-5 text-sm text-neutral-300">
+            <div>
+              <div class="font-semibold mb-1">No currículo:</div>
+              <div class="bg-dark-900/50 rounded-lg p-3 border border-dark-600 font-mono text-xs text-neutral-300">
+                CAIP — Certified AI Professional<br>
+                <span class="text-neutral-500">Formação em IA Aplicada, Automação e Agentes Digitais.</span>
+              </div>
+            </div>
+            <div>
+              <div class="font-semibold mb-1">No LinkedIn:</div>
+              <div class="bg-dark-900/50 rounded-lg p-3 border border-dark-600 font-mono text-xs text-neutral-300">
+                Especialista em IA Aplicada | <span class="text-primary">CAIP</span> | Automação, Agentes Digitais e Produtividade Empresarial
+              </div>
+            </div>
+            <div>
+              <div class="font-semibold mb-1">Na assinatura de e-mail:</div>
+              <div class="bg-dark-900/50 rounded-lg p-3 border border-dark-600 font-mono text-xs text-neutral-300">
+                João Silva<br>
+                <span class="text-primary">CAIP — Certified AI Professional</span><br>
+                <span class="text-neutral-500">IA Aplicada · Automação · Transformação Digital</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Escada de produtos -->
+      <h3 class="text-2xl font-bold mb-6">Caminhos de evolução</h3>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="bg-dark-800 rounded-xl border border-dark-600 p-6">
+          <div class="text-sm text-neutral-500 mb-1">Online · 5 trilhas</div>
+          <div class="text-xl font-bold text-teal-400 mb-2">CAIP Certified</div>
+          <p class="text-sm text-neutral-400 mb-4">Programa base completo. Projeto final entregue. Credencial reconhecível.</p>
+          <div class="text-xs text-neutral-500">Renovação anual com módulo de atualização</div>
+        </div>
+        <div class="bg-dark-800 rounded-xl border border-rose-500/30 p-6">
+          <div class="text-sm text-neutral-500 mb-1">Imersão presencial · 2-3 dias</div>
+          <div class="text-xl font-bold text-rose-400 mb-2">CAIP Specialist</div>
+          <p class="text-sm text-neutral-400 mb-4">Especialização em Builder, Enterprise ou Operations. Aprofundamento prático com mentoria.</p>
+          <div class="text-xs text-neutral-500">Pré-requisito: CAIP Certified</div>
+        </div>
+        <div class="bg-gradient-to-br from-primary/10 to-dark-800 rounded-xl border border-primary/40 p-6">
+          <div class="text-sm text-neutral-500 mb-1">Programa anual · 3 imersões</div>
+          <div class="text-xl font-bold text-primary mb-2">CAIP Master</div>
+          <p class="text-sm text-neutral-400 mb-4">Domínio das 3 especialidades. Turma fechada. Conteúdo de fronteira. Selo máximo.</p>
+          <div class="text-xs text-neutral-500">Pré-requisito: 3 Specialist</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ rápida -->
+    <section class="mb-24">
+      <span class="inline-block px-3 py-1 bg-dark-700 text-neutral-400 text-xs font-semibold rounded-full mb-4 uppercase tracking-wider">
+        Dúvidas frequentes
+      </span>
+      <h2 class="text-3xl sm:text-4xl font-bold mb-12">Antes de você perguntar</h2>
+
+      <div class="space-y-4">
+        <details class="group bg-dark-800 rounded-xl border border-dark-600 p-6">
+          <summary class="font-semibold cursor-pointer flex items-center justify-between">
+            <span>Preciso saber programar?</span>
+            <span class="text-primary text-xl group-open:rotate-45 transition-transform">+</span>
+          </summary>
+          <p class="mt-4 text-neutral-300 text-sm leading-relaxed">Não. O CAIP é para quem trabalha no computador — independente da área. Quem programa tira proveito extra na Trilha 3, mas a base não exige uma linha de código.</p>
+        </details>
+
+        <details class="group bg-dark-800 rounded-xl border border-dark-600 p-6">
+          <summary class="font-semibold cursor-pointer flex items-center justify-between">
+            <span>Quanto tempo leva pra concluir?</span>
+            <span class="text-primary text-xl group-open:rotate-45 transition-transform">+</span>
+          </summary>
+          <p class="mt-4 text-neutral-300 text-sm leading-relaxed">As 5 trilhas base somam ~60h de conteúdo. Em ritmo de 1h/dia, dá pra concluir em 60 dias. Em ritmo intensivo (3-4h/dia), 3 a 4 semanas.</p>
+        </details>
+
+        <details class="group bg-dark-800 rounded-xl border border-dark-600 p-6">
+          <summary class="font-semibold cursor-pointer flex items-center justify-between">
+            <span>Como funciona a renovação anual?</span>
+            <span class="text-primary text-xl group-open:rotate-45 transition-transform">+</span>
+          </summary>
+          <p class="mt-4 text-neutral-300 text-sm leading-relaxed">IA muda rápido. A cada 12 meses o aluno faz um módulo de atualização (modelos novos, agentes novos, casos) e renova o selo. Isso mantém a credencial confiável e atualizada.</p>
+        </details>
+
+        <details class="group bg-dark-800 rounded-xl border border-dark-600 p-6">
+          <summary class="font-semibold cursor-pointer flex items-center justify-between">
+            <span>Minha empresa pode pagar a certificação?</span>
+            <span class="text-primary text-xl group-open:rotate-45 transition-transform">+</span>
+          </summary>
+          <p class="mt-4 text-neutral-300 text-sm leading-relaxed">Sim — e a maioria paga. Existe um pacote B2B com 10+ vagas, com desconto. Sua empresa investe em capacitação verificável e você sai com credencial no nome. Fale com o time comercial.</p>
+        </details>
+
+        <details class="group bg-dark-800 rounded-xl border border-dark-600 p-6">
+          <summary class="font-semibold cursor-pointer flex items-center justify-between">
+            <span>Qual a diferença para um curso comum de ChatGPT?</span>
+            <span class="text-primary text-xl group-open:rotate-45 transition-transform">+</span>
+          </summary>
+          <p class="mt-4 text-neutral-300 text-sm leading-relaxed">Curso comum ensina ferramenta. O CAIP ensina <strong class="text-primary">comando</strong> — e exige projeto real entregue. Você sai com sistema rodando, credencial verificável e portfólio público. Não é assistir vídeo: é provar que sabe.</p>
+        </details>
+      </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section class="mb-12">
+      <div class="bg-gradient-to-br from-primary/20 via-dark-800 to-dark-800 rounded-2xl border border-primary/30 p-10 sm:p-16 text-center">
+        <h2 class="text-3xl sm:text-5xl font-bold mb-6">Quando a inteligência fica barata,<br><span class="text-primary">sobra você.</span></h2>
+        <p class="text-lg text-neutral-300 mb-10 max-w-2xl mx-auto">Sobra <em class="text-primary">você</em> — se você se preparar. O CAIP é a credencial de quem não vai ser commodity.</p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="curso/trilha1/index.html" class="inline-flex items-center justify-center px-10 py-4 bg-primary text-dark-900 rounded-lg font-bold hover:bg-yellow-300 transition-colors">
+            Começar pela Trilha 1 →
+          </a>
+          <a href="#trilhas" class="inline-flex items-center justify-center px-10 py-4 bg-dark-700 border border-dark-600 text-neutral-100 rounded-lg font-semibold hover:bg-dark-600 transition-colors">
+            Ver programa completo
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-dark-600 py-10 mt-8">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+        <div>
+          <div class="flex items-center space-x-2 text-yellow-400 mb-2">
+            <span class="text-2xl">🎓</span>
+            <span class="font-bold text-lg">CAIP — Certified AI Professional</span>
+          </div>
+          <p class="text-sm text-neutral-500">A credencial brasileira oficial em IA Aplicada.</p>
+        </div>
+        <div class="text-sm text-neutral-500">
+          <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 font-medium">INEMA.CLUB</a>
+          <span class="mx-2">·</span>
+          <span>© 2026</span>
+        </div>
+      </div>
+    </div>
+  
+<!-- inema-backlink:v1 -->
+<p style="display:block;width:100%;text-align:center;font-size:.85rem;margin:.75rem 0 0;opacity:.85"><a href="https://www.inema.club/cursos/92-caip-certified-ai-professional/" style="color:inherit;text-decoration:underline">Ficha completa deste curso no INEMA.CLUB</a> · <a href="https://www.inema.club/aprender-inteligencia-artificial/" style="color:inherit;text-decoration:underline">Guia: como aprender inteligência artificial</a></p>
+<!-- /inema-backlink:v1 -->
+</footer>
+
+  <script>
+    // Theme toggle
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+    const html = document.documentElement;
+
+    if (localStorage.getItem('theme') === 'light' || (!localStorage.getItem('theme') && !html.classList.contains('dark'))) {
+      themeToggleDarkIcon.classList.remove('hidden');
+      html.classList.remove('dark');
+    } else {
+      themeToggleLightIcon.classList.remove('hidden');
+    }
+
+    themeToggle.addEventListener('click', () => {
+      themeToggleDarkIcon.classList.toggle('hidden');
+      themeToggleLightIcon.classList.toggle('hidden');
+      html.classList.toggle('dark');
+      localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+    });
+  </script>
+
+</body>
+</html>

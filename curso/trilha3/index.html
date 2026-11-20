@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trilha 3 — Agents | CAIP</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#FACC15', dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' } } } } }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; } .dark body { background-color: #111827; }
+    .topic-explanation { display: none; } .topic-explanation.active { display: block; }
+    html:not(.dark) body { background-color: #f8fafc; }
+    html:not(.dark) .bg-dark-900 { background-color: #ffffff; } html:not(.dark) .bg-dark-800 { background-color: #f9fafb; } html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; } html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+    html:not(.dark) .text-neutral-100 { color: #111827; } html:not(.dark) .text-neutral-300 { color: #4b5563; } html:not(.dark) .text-neutral-400 { color: #6b7280; } html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+    html:not(.dark) .border-dark-600 { border-color: #d1d5db; } html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+    html:not(.dark) .text-purple-400 { color: #7c3aed; } html:not(.dark) .bg-purple-500\/20 { background-color: rgba(124, 58, 237, 0.12); } html:not(.dark) .bg-purple-500\/10 { background-color: rgba(124, 58, 237, 0.08); } html:not(.dark) .border-purple-500\/30 { border-color: rgba(124, 58, 237, 0.25); } html:not(.dark) .hover\:bg-purple-500\/30:hover { background-color: rgba(124, 58, 237, 0.18); }
+    html:not(.dark) .hover\:text-purple-400:hover { color: #7c3aed; } html:not(.dark) .hover\:bg-purple-500\/10:hover { background-color: rgba(124, 58, 237, 0.08); }
+    html:not(.dark) .group:hover .group-hover\:text-purple-400 { color: #7c3aed; }
+    html:not(.dark) .hover\:text-emerald-400:hover { color: #059669; } html:not(.dark) .hover\:bg-emerald-500\/10:hover { background-color: rgba(5, 150, 105, 0.08); }
+    html:not(.dark) .hover\:text-blue-400:hover { color: #2563eb; } html:not(.dark) .hover\:bg-blue-500\/10:hover { background-color: rgba(37, 99, 235, 0.08); }
+    html:not(.dark) .hover\:text-amber-400:hover { color: #92400e; } html:not(.dark) .hover\:bg-amber-500\/10:hover { background-color: rgba(217, 119, 6, 0.08); }
+    html:not(.dark) .hover\:text-teal-400:hover { color: #0d9488; } html:not(.dark) .hover\:bg-teal-500\/10:hover { background-color: rgba(13, 148, 136, 0.08); }
+    html:not(.dark) .hover\:text-rose-400:hover { color: #9f1239; } html:not(.dark) .hover\:bg-rose-500\/10:hover { background-color: rgba(225, 29, 72, 0.08); }
+    html:not(.dark) [class*="bg-gradient-to"] { background-image: none !important; }
+    html:not(.dark) .text-primary { color: #a16207; } html:not(.dark) .bg-primary\/10 { background-color: rgba(161, 98, 7, 0.08); } html:not(.dark) .border-primary\/40 { border-color: rgba(161, 98, 7, 0.25); }
+    html:not(.dark) .text-sky-400 { color: #0369a1; } html:not(.dark) .text-yellow-400 { color: #a16207; } html:not(.dark) .hover\:text-sky-300:hover { color: #0284c7; } html:not(.dark) .hover\:text-yellow-300:hover { color: #854d0e; }
+    html:not(.dark) .bg-dark-900\/95 { background-color: rgba(255, 255, 255, 0.95); }
+  </style>
+</head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen">
+
+  <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-14">
+      <div class="flex items-center space-x-4">
+        <a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300"><span class="text-2xl">🎓</span><span class="font-bold text-lg hidden sm:inline">CAIP</span></a>
+        <span class="text-neutral-600">|</span>
+        <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
+      </div>
+      <div class="flex items-center space-x-1 sm:space-x-2">
+        <a href="../trilha1/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors"><span class="sm:hidden">T1</span><span class="hidden sm:inline">Foundation</span></a>
+        <a href="../trilha2/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors"><span class="sm:hidden">T2</span><span class="hidden sm:inline">Command</span></a>
+        <a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-purple-400 bg-purple-500/10"><span class="sm:hidden">T3</span><span class="hidden sm:inline">Agents</span></a>
+        <a href="../trilha4/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-amber-400 hover:bg-amber-500/10 transition-colors"><span class="sm:hidden">T4</span><span class="hidden sm:inline">Practice</span></a>
+        <a href="../trilha5/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-teal-400 hover:bg-teal-500/10 transition-colors"><span class="sm:hidden">T5</span><span class="hidden sm:inline">Capstone</span></a>
+        <a href="../trilha6/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-rose-400 hover:bg-rose-500/10 transition-colors"><span class="sm:hidden">T6</span><span class="hidden sm:inline">Specialist</span></a>
+        <button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2">
+          <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+          <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <header class="bg-gradient-to-br from-purple-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <span class="inline-block px-3 py-1 bg-purple-500/20 text-purple-400 text-xs font-semibold rounded-full mb-4">TRILHA 3 · AGENTS</span>
+      <h1 class="text-3xl sm:text-4xl font-bold mb-4">🤖 Agentes e Automação</h1>
+      <p class="text-lg text-neutral-400 max-w-3xl">Saia do chat e entre em fluxos que executam: pesquisa, redação, planilhas, e-mail, dashboards. Aqui a IA deixa de ser assistente e vira funcionário. Selo: <strong class="text-purple-400">CAIP Agent Builder</strong>.</p>
+      <div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl">
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">6</div><div class="text-xs text-neutral-400">Módulos</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">36</div><div class="text-xs text-neutral-400">Tópicos</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">~12h</div><div class="text-xs text-neutral-400">Duração</div></div>
+        <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">Inter.</div><div class="text-xs text-neutral-400">Nível</div></div>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <section class="mb-12">
+      <h2 class="text-2xl font-bold mb-6">Mapa da trilha</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <a href="#modulo-3-1" class="group bg-dark-800 rounded-xl border border-dark-600 hover:border-purple-500/30 p-5 transition-all">
+          <div class="flex items-center justify-between mb-2"><span class="text-purple-400 font-bold text-sm">3.1</span><span class="text-xs text-neutral-500">~100 min</span></div>
+          <h3 class="font-semibold mb-1 group-hover:text-purple-400 transition-colors">🚪 Do chat ao agente-funcionário</h3>
+          <p class="text-xs text-neutral-400">A virada que define a Trilha 3</p>
+        </a>
+        <a href="#modulo-3-2" class="group bg-dark-800 rounded-xl border border-dark-600 hover:border-purple-500/30 p-5 transition-all">
+          <div class="flex items-center justify-between mb-2"><span class="text-purple-400 font-bold text-sm">3.2</span><span class="text-xs text-neutral-500">~100 min</span></div>
+          <h3 class="font-semibold mb-1 group-hover:text-purple-400 transition-colors">🗺️ Mapeando o que automatizar</h3>
+          <p class="text-xs text-neutral-400">Qual tarefa vira fluxo</p>
+        </a>
+        <a href="#modulo-3-3" class="group bg-dark-800 rounded-xl border border-dark-600 hover:border-purple-500/30 p-5 transition-all">
+          <div class="flex items-center justify-between mb-2"><span class="text-purple-400 font-bold text-sm">3.3</span><span class="text-xs text-neutral-500">~120 min</span></div>
+          <h3 class="font-semibold mb-1 group-hover:text-purple-400 transition-colors">🛠️ Seu primeiro fluxo</h3>
+          <p class="text-xs text-neutral-400">Pesquisa + síntese + entrega</p>
+        </a>
+        <a href="#modulo-3-4" class="group bg-dark-800 rounded-xl border border-dark-600 hover:border-purple-500/30 p-5 transition-all">
+          <div class="flex items-center justify-between mb-2"><span class="text-purple-400 font-bold text-sm">3.4</span><span class="text-xs text-neutral-500">~120 min</span></div>
+          <h3 class="font-semibold mb-1 group-hover:text-purple-400 transition-colors">⛓️ Agentes em cadeia</h3>
+          <p class="text-xs text-neutral-400">Pipeline: pesquisa → escrita → revisão</p>
+        </a>
+        <a href="#modulo-3-5" class="group bg-dark-800 rounded-xl border border-dark-600 hover:border-purple-500/30 p-5 transition-all">
+          <div class="flex items-center justify-between mb-2"><span class="text-purple-400 font-bold text-sm">3.5</span><span class="text-xs text-neutral-500">~120 min</span></div>
+          <h3 class="font-semibold mb-1 group-hover:text-purple-400 transition-colors">🔌 Integração com sua vida</h3>
+          <p class="text-xs text-neutral-400">E-mail, agenda, docs, planilha</p>
+        </a>
+        <a href="#modulo-3-6" class="group bg-dark-800 rounded-xl border border-dark-600 hover:border-purple-500/30 p-5 transition-all">
+          <div class="flex items-center justify-between mb-2"><span class="text-purple-400 font-bold text-sm">3.6</span><span class="text-xs text-neutral-500">~100 min</span></div>
+          <h3 class="font-semibold mb-1 group-hover:text-purple-400 transition-colors">📚 Memória organizacional</h3>
+          <p class="text-xs text-neutral-400">A base que multiplica tudo</p>
+        </a>
+      </div>
+    </section>
+
+    <div class="mb-8 flex items-center space-x-4">
+      <h2 class="text-2xl font-bold">Conteúdo detalhado</h2>
+      <div class="flex-1 h-px bg-dark-600"></div>
+    </div>
+
+    <!-- MÓDULO 3.1 -->
+    <div id="modulo-3-1" class="bg-dark-800 rounded-xl border border-dark-600 mb-6">
+      <div class="p-6 border-b border-dark-600">
+        <div class="flex items-center justify-between mb-2"><span class="text-purple-400 font-bold">3.1</span><span class="text-xs text-neutral-500">~100 min</span></div>
+        <h3 class="text-2xl font-bold mb-2">🚪 Do chat ao agente-funcionário</h3>
+        <p class="text-neutral-400 text-sm">A virada conceitual da Trilha 3. Você para de pedir e passa a delegar. Agente vira time invisível trabalhando 24/7.</p>
+      </div>
+      <div class="divide-y divide-dark-600">
+        <div class="topic-item"><button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+          <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span><span class="text-lg">🤖</span>
+          <div><span class="font-medium">O que é um agente de verdade</span><span class="text-neutral-500 text-sm ml-2">- Além do chat genérico</span></div>
+        </button><div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+          <div><span class="text-purple-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Um agente é uma IA com 3 ingredientes: raciocínio (LLM), ferramentas (APIs, browser, código) e autonomia (decide o próximo passo). Não responde — executa.</p></div>
+          <div><span class="text-purple-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Sem entender o conceito, você acha que ChatGPT é "tipo um agente". Não é. Saber a diferença abre uma camada inteira de uso real.</p></div>
+          <div><span class="text-purple-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Tool use · Autonomia · Loop de agente · Raciocínio + ação.</p></div>
+        </div></div></div>
+        <div class="topic-item"><button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+          <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span><span class="text-lg">⚡</span>
+          <div><span class="font-medium">Chat vs agente</span><span class="text-neutral-500 text-sm ml-2">- Quando usar cada um</span></div>
+        </button><div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+          <div><span class="text-purple-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Chat = pergunta-resposta única. Agente = você fala "resolve isso" e ele faz 7 passos sozinho. Cada um tem seu uso. Confundir = desperdício.</p></div>
+          <div><span class="text-purple-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Saber quando puxar cada um te economiza tempo enorme. Tarefa rápida no chat, processo de várias etapas no agente.</p></div>
+          <div><span class="text-purple-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Single-turn · Multi-step · Decisão de modalidade · Custo por execução.</p></div>
+        </div></div></div>
+        <div class="topic-item"><button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+          <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span><span class="text-lg">🧰</span>
+          <div><span class="font-medium">Tool use: ferramentas + raciocínio</span><span class="text-neutral-500 text-sm ml-2">- Como agente "faz" coisas</span></div>
+        </button><div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+          <div><span class="text-purple-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Tool use é a IA chamando funções: buscar na web, ler PDF, mandar e-mail, criar planilha, rodar código. Cada ferramenta amplia o raio de ação.</p></div>
+          <div><span class="text-purple-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Sem ferramentas, agente só conversa. Com ferramentas, ele opera o mundo. É onde a multiplicação real acontece.</p></div>
+          <div><span class="text-purple-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Function calling · MCP · Plugin · Browser tool · Code interpreter.</p></div>
+        </div></div></div>
+        <div class="topic-item"><button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+          <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span><span class="text-lg">🎚️</span>
+          <div><span class="font-medium">Autonomia controlada</span><span class="text-neutral-500 text-sm ml-2">- Quando IA decide sozinha</span></div>
+        </button><div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+          <div><span class="text-purple-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Você define o quanto a IA pode decidir sozinha: tudo, alguns passos, ou só com sua aprovação. Quanto mais autonomia, mais rápido — e mais arriscado.</p></div>
+          <div><span class="text-purple-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Autonomia mal calibrada = desastre. Bem calibrada = produtividade absurda. Esse é o dial mais importante de qualquer agente.</p></div>
+          <div><span class="text-purple-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Human-in-the-loop · Approval gates · Permission scopes · Risk vs speed.</p></div>
+        </div></div></div>
+        <div class="topic-item"><button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+          <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">5</span><span class="text-lg">🔄</span>
+          <div><span class="font-medium">Loop de agente</span><span class="text-neutral-500 text-sm ml-2">- Planejar → executar → avaliar</span></div>
+        </button><div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+          <div><span class="text-purple-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">O ciclo: agente lê objetivo, faz plano, executa um passo, avalia resultado, decide o próximo. Repete até pronto ou pedir ajuda. É a anatomia de toda execução autônoma.</p></div>
+          <div><span class="text-purple-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Entender o loop te ajuda a debugar quando dá errado e a desenhar fluxos que terminam — em vez de viajar pra sempre.</p></div>
+          <div><span class="text-purple-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">ReAct · Plan-execute-reflect · Convergência · Critério de parada.</p></div>
+        </div></div></div>
+        <div class="topic-item"><button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+          <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">6</span><span class="text-lg">🎯</span>
+          <div><span class="font-medium">Quando você precisa de agente</span><span class="text-neutral-500 text-sm ml-2">- Critério de decisão</span></div>
+        </button><div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+          <div><span class="text-purple-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Use agente quando: tarefa tem 3+ etapas, repete muito, precisa ferramentas externas, ou consome &gt;30min/semana. Caso contrário, chat resolve.</p></div>
+          <div><span class="text-purple-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Construir agente custa tempo. Saber quando vale a pena evita over-engineering em tarefas simples.</p></div>
+          <div><span class="text-purple-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">ROI de automação · Threshold de complexidade · Build vs reuse · Volume crítico.</p></div>
+        </div></div></div>
+      </div>
+      <div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+        <button onclick="openModal('modal-3-1')" class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors">Ver em Modal</button>
+        <a href="modulo-3-1.html" class="px-4 py-2 text-sm bg-purple-600 hover:bg-purple-500 text-white rounded-lg transition-colors">Ver Completo</a>
+      </div>
+    </div>
+
+    <!-- MÓDULO 3.2 -->
+    <div id="modulo-3-2" class="bg-dark-800 rounded-xl border border-dark-600 mb-6">
+      <div class="p-6 border-b border-dark-600">
+        <div class="flex items-center justify-between mb-2"><span class="text-purple-400 font-bold">3.2</span><span class="text-xs text-neutral-500">~100 min</span></div>
+        <h3 class="text-2xl font-bold mb-2">🗺️ Mapeando o que automatizar</h3>
+        <p class="text-neutral-400 text-sm">Nem toda tarefa vale virar agente. Aprenda a filtrar candidatos, priorizar por ROI e construir sua lista pessoal.</p>
+      </div>
+      <div class="divide-y divide-dark-600">
+        <div class="topic-item"><button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+          <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span><span class="text-lg">🔁</span>
+          <div><span class="font-medium">Repetitiva vs criativa</span><span class="text-neutral-500 text-sm ml-2">- A primeira filtragem</span></div>
+        </button><div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+          <div><span class="text-purple-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Tarefa repetitiva = mesmo processo, dados diferentes. Criativa = exige julgamento único. Automatize repetitivas. Mantenha criativas — IA assiste, você decide.</p></div>
+          <div><span class="text-purple-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Confundir as duas é erro caro. Automatizar criativo = output genérico. Manter repetitivo na mão = sangria de tempo.</p></div>
+          <div><span class="text-purple-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Padrão de tarefa · Variação aceitável · Julgamento humano · Standard process.</p></div>
+        </div></div></div>
+        <div class="topic-item"><button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+          <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span><span class="text-lg">📊</span>
+          <div><span class="font-medium">Volume × valor</span><span class="text-neutral-500 text-sm ml-2">- Priorização certa de candidatos</span></div>
+        </button><div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+          <div><span class="text-purple-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Mire em alto volume × alto custo. Tarefa que repete 20x/semana e dura 30min cada = 10h/semana. Esse é o candidato perfeito.</p></div>
+          <div><span class="text-purple-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Pra parar de automatizar coisa errada. Tarefa que faz 1x/mês = não vale construir. Tarefa diária = vale 100%.</p></div>
+          <div><span class="text-purple-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Frequência · Custo unitário · Payback · Matriz de priorização.</p></div>
+        </div></div></div>
+        <div class="topic-item"><button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+          <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span><span class="text-lg">⏱️</span>
+          <div><span class="font-medium">Síncrono vs assíncrono</span><span class="text-neutral-500 text-sm ml-2">- Quando precisa de você presente</span></div>
+        </button><div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+          <div><span class="text-purple-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Síncrono = precisa de você agora (reunião, atendimento). Assíncrono = pode rodar enquanto você dorme (relatório, triagem). Automatize assíncronos primeiro.</p></div>
+          <div><span class="text-purple-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Fluxos assíncronos são onde IA brilha. Roda 24/7 sem você. Trabalho enquanto você dorme = renda passiva intelectual.</p></div>
+          <div><span class="text-purple-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Sync · Async · Background job · Cron · Schedule.</p></div>
+        </div></div></div>
+        <div class="topic-item"><button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+          <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span><span class="text-lg">✅</span>
+          <div><span class="font-medium">Sinais de tarefa pronta</span><span class="text-neutral-500 text-sm ml-2">- Checklist do candidato ideal</span></div>
+        </button><div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+          <div><span class="text-purple-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Sinais positivos: input estruturado, output esperado é previsível, sem decisão emocional, sem cliente na linha, processo já escrito. Se tem 3+, automatize.</p></div>
+          <div><span class="text-purple-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Tem ouro escondido em tarefas que parecem complexas mas têm padrão. Treinar olho pra ver isso é 80% do valor desse módulo.</p></div>
+          <div><span class="text-purple-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Determinístico · Estruturado · SOP · Previsibilidade.</p></div>
+        </div></div></div>
+        <div class="topic-item"><button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+          <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">5</span><span class="text-lg">🚫</span>
+          <div><span class="font-medium">O que NÃO automatizar</span><span class="text-neutral-500 text-sm ml-2">- Anti-padrões de candidato</span></div>
+        </button><div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+          <div><span class="text-purple-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Não automatize: decisão moral, vínculo humano direto, raciocínio único por caso, demissão, negociação cara, atendimento de cliente que paga premium.</p></div>
+          <div><span class="text-purple-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Automatizar errado destrói relação, gera risco legal e custa caro pra desfazer. Saber a linha é maturidade profissional.</p></div>
+          <div><span class="text-purple-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Limite ético · Stakes altos · Toque humano · Premium-feel.</p></div>
+        </div></div></div>
+        <div class="topic-item"><button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+          <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">6</span><span class="text-lg">📝</span>
+          <div><span class="font-medium">Sua lista pessoal de candidatos</span><span class="text-neutral-500 text-sm ml-2">- Exercício prático</span></div>
+        </button><div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+          <div><span class="text-purple-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Você sai do módulo com 10 candidatos identificados, priorizados por ROI e prontos pra virar fluxo. Esse é o input das Trilhas 3.3 a 3.6.</p></div>
+          <div><span class="text-purple-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Sem lista, você vai construir fluxo errado. Com lista, você ataca os top 3 e devolve 10h+/semana já no primeiro mês.</p></div>
+          <div><span class="text-purple-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Backlog pessoal · ROI estimado · Top 3 · Quick wins.</p></div>
+        </div></div></div>
+      </div>
+      <div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+        <button onclick="openModal('modal-3-2')" class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors">Ver em Modal</button>
+        <a href="modulo-3-2.html" class="px-4 py-2 text-sm bg-purple-600 hover:bg-purple-500 text-white rounded-lg transition-colors">Ver Completo</a>
+      </div>
+    </div>
+
+    <!-- MÓDULO 3.3 -->
+    <div id="modulo-3-3" class="bg-dark-800 rounded-xl border border-dark-600 mb-6">
+      <div class="p-6 border-b border-dark-600">
+        <div class="flex items-center justify-between mb-2"><span class="text-purple-400 font-bold">3.3</span><span class="text-xs text-neutral-500">~120 min</span></div>
+        <h3 class="text-2xl font-bold mb-2">🛠️ Seu primeiro fluxo</h3>
+        <p class="text-neutral-400 text-sm">Mão na massa: pesquisa + síntese + entrega. Você sai deste módulo com 1 fluxo rodando — o template pra todos os outros.</p>
+      </div>
+      <div class="divide-y divide-dark-600">
+        <div class="topic-item"><button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+          <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span><span class="text-lg">🧬</span>
+          <div><span class="font-medium">Anatomia de um fluxo</span><span class="text-neutral-500 text-sm ml-2">- Input → processo → output</span></div>
+        </button><div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+          <div><span class="text-purple-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Todo fluxo tem 3 partes: input (o que entra), processo (o que IA faz), output (o que sai). Sempre nesse formato. Quem entende a forma constrói rápido.</p></div>
+          <div><span class="text-purple-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Padrão mental que aplica em qualquer ferramenta: n8n, Make, Zapier, Projects. Você aprende uma vez, usa em todas.</p></div>
+          <div><span class="text-purple-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Pipeline · I/O · Etapas · Estado intermediário.</p></div>
+        </div></div></div>
+        <div class="topic-item"><button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+          <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span><span class="text-lg">📋</span>
+          <div><span class="font-medium">Briefing do fluxo</span><span class="text-neutral-500 text-sm ml-2">- Versão reutilizável do briefing</span></div>
+        </button><div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+          <div><span class="text-purple-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Igual briefing da Trilha 2 (6 elementos), só que você escreve uma vez e o fluxo aplica em N inputs. Vira documento vivo da automação.</p></div>
+          <div><span class="text-purple-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Sem briefing escrito, seu fluxo vai gerar entrega diferente toda vez. Com briefing, qualidade é estável.</p></div>
+          <div><span class="text-purple-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">System prompt do fluxo · Template parametrizado · Variável vs fixo · Versionamento.</p></div>
+        </div></div></div>
+        <div class="topic-item"><button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+          <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span><span class="text-lg">🔧</span>
+          <div><span class="font-medium">Ferramentas pra montar</span><span class="text-neutral-500 text-sm ml-2">- Projects, n8n, Make, Zapier</span></div>
+        </button><div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+          <div><span class="text-purple-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Projects (ChatGPT/Claude): mais simples, dentro do chat. n8n: poderoso e self-hosted. Make: visual no-code. Zapier: integração com tudo, mas cara.</p></div>
+          <div><span class="text-purple-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Saber qual ferramenta serve qual fluxo te economiza 80% do tempo de construção. Não use canhão pra matar mosquito.</p></div>
+          <div><span class="text-purple-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">No-code · Low-code · Self-hosted · SaaS · Trade-off poder vs simplicidade.</p></div>
+        </div></div></div>
+        <div class="topic-item"><button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+          <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span><span class="text-lg">🚀</span>
+          <div><span class="font-medium">Construção passo a passo</span><span class="text-neutral-500 text-sm ml-2">- O primeiro fluxo, do zero</span></div>
+        </button><div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+          <div><span class="text-purple-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Walkthrough completo: você define o caso, escreve o briefing, escolhe ferramenta, monta as etapas, conecta entrada e saída. Fluxo funcional ao fim da aula.</p></div>
+          <div><span class="text-purple-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Construir o primeiro é o mais difícil. Depois é só repetir o padrão. Esse módulo destrava você pra sempre.</p></div>
+          <div><span class="text-purple-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">MVP de automação · Quick win · Setup mínimo · Primeira execução.</p></div>
+        </div></div></div>
+        <div class="topic-item"><button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+          <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">5</span><span class="text-lg">🧪</span>
+          <div><span class="font-medium">Testes e iteração</span><span class="text-neutral-500 text-sm ml-2">- Como saber se está bom</span></div>
+        </button><div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+          <div><span class="text-purple-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Rode com 5 entradas reais. Avalie cada saída pelos critérios da Trilha 2. Identifique padrões de erro. Ajuste briefing. Repita.</p></div>
+          <div><span class="text-purple-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Fluxo sem teste = bomba esperando explodir. Teste com volume real é a diferença entre amador e profissional.</p></div>
+          <div><span class="text-purple-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Bateria de testes · Casos extremos · Erro recorrente · Ciclo de tuning.</p></div>
+        </div></div></div>
+        <div class="topic-item"><button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+          <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">6</span><span class="text-lg">📦</span>
+          <div><span class="font-medium">Documentar e versionar</span><span class="text-neutral-500 text-sm ml-2">- Pra você (e os outros) entenderem</span></div>
+        </button><div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+          <div><span class="text-purple-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Cada fluxo deve ter: nome, objetivo, input esperado, output esperado, ferramenta, versão. Documento simples, 1 página. Você agradece em 2 meses.</p></div>
+          <div><span class="text-purple-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Sem doc, fluxo vira caixa-preta que ninguém manutenção. Com doc, vira ativo da operação.</p></div>
+          <div><span class="text-purple-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">README · Versionamento · Changelog · Ativo documentado.</p></div>
+        </div></div></div>
+      </div>
+      <div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+        <button onclick="openModal('modal-3-3')" class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors">Ver em Modal</button>
+        <a href="modulo-3-3.html" class="px-4 py-2 text-sm bg-purple-600 hover:bg-purple-500 text-white rounded-lg transition-colors">Ver Completo</a>
+      </div>
+    </div>
+
+    <!-- MÓDULO 3.4 -->
+    <div id="modulo-3-4" class="bg-dark-800 rounded-xl border border-dark-600 mb-6">
+      <div class="p-6 border-b border-dark-600">
+        <div class="flex items-center justify-between mb-2"><span class="text-purple-400 font-bold">3.4</span><span class="text-xs text-neutral-500">~120 min</span></div>
+        <h3 class="text-2xl font-bold mb-2">⛓️ Agentes em cadeia</h3>
+        <p class="text-neutral-400 text-sm">Pipeline real: pesquisa → escrita → revisão → publicação. Cada etapa um agente especializado.</p>
+      </div>
+      <div class="divide-y divide-dark-600">
+        <div class="topic-item"><button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+          <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span><span class="text-lg">🔪</span>
+          <div><span class="font-medium">Por que decompor</span><span class="text-neutral-500 text-sm ml-2">- 1 grande vs 5 pequenos</span></div>
+        </button><div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+          <div><span class="text-purple-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">5 agentes pequenos especialistas batem 1 agente grande generalista todas as vezes. Cada um tem foco, briefing curto, output previsível.</p></div>
+          <div><span class="text-purple-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">É contraintuitivo. Iniciante quer tudo num só agente. Profissional decompõe. Resultado: 3x mais qualidade pelo mesmo custo.</p></div>
+          <div><span class="text-purple-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Single responsibility · Especialização · Modularidade · Composability.</p></div>
+        </div></div></div>
+        <div class="topic-item"><button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+          <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span><span class="text-lg">🔗</span>
+          <div><span class="font-medium">Pipeline clássico</span><span class="text-neutral-500 text-sm ml-2">- Pesquisa → escrita → revisão → publicação</span></div>
+        </button><div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+          <div><span class="text-purple-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Padrão de cadeia mais comum. Agente 1 pesquisa fontes. Agente 2 escreve. Agente 3 revisa. Agente 4 publica/posta. Você supervisiona pontos críticos.</p></div>
+          <div><span class="text-purple-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">É a base de 80% dos casos de criação de conteúdo automatizado. Aprende uma vez, usa em mil contextos.</p></div>
+          <div><span class="text-purple-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Conteúdo pipeline · Quatro estágios · Specialization · Output → input.</p></div>
+        </div></div></div>
+        <div class="topic-item"><button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+          <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span><span class="text-lg">🤝</span>
+          <div><span class="font-medium">Handoff entre etapas</span><span class="text-neutral-500 text-sm ml-2">- Formato + critério de passagem</span></div>
+        </button><div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+          <div><span class="text-purple-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">O que sai de uma etapa precisa ser exatamente o que entra na próxima. Defina formato (markdown, JSON, lista) e critérios mínimos. Sem isso, cadeia vira telefone-sem-fio.</p></div>
+          <div><span class="text-purple-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Handoff ruim é onde 90% das cadeias quebram. Saber especificar interface entre agentes é uma das skills mais valiosas.</p></div>
+          <div><span class="text-purple-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Schema · Interface · Contract · Acceptance criteria por etapa.</p></div>
+        </div></div></div>
+        <div class="topic-item"><button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+          <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span><span class="text-lg">🛑</span>
+          <div><span class="font-medium">Checkpoints humanos</span><span class="text-neutral-500 text-sm ml-2">- Onde colocar você no meio</span></div>
+        </button><div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+          <div><span class="text-purple-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Antes de etapas com risco alto (publicar, enviar, gastar dinheiro), insira aprovação humana. Pode ser botão no painel ou e-mail.</p></div>
+          <div><span class="text-purple-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Checkpoint é o que separa automação responsável de automação caótica. Tudo automático = bomba. Checkpoint estratégico = segurança.</p></div>
+          <div><span class="text-purple-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">HITL · Approval workflow · Guard rail · Stop point.</p></div>
+        </div></div></div>
+        <div class="topic-item"><button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+          <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">5</span><span class="text-lg">🛡️</span>
+          <div><span class="font-medium">Erro e fallback</span><span class="text-neutral-500 text-sm ml-2">- O que faz quando dá ruim</span></div>
+        </button><div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+          <div><span class="text-purple-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Cada etapa pode falhar. Defina: retry quantas vezes, fallback (rota alternativa), notificação humana, registro de log. Pensar nisso antes evita o caos depois.</p></div>
+          <div><span class="text-purple-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Fluxo sem tratamento de erro tem tempo de vida útil de 1 semana. Com tratamento, dura anos.</p></div>
+          <div><span class="text-purple-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Retry · Fallback · Circuit breaker · Alerta · Logging.</p></div>
+        </div></div></div>
+        <div class="topic-item"><button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+          <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">6</span><span class="text-lg">📚</span>
+          <div><span class="font-medium">Cadeias clássicas</span><span class="text-neutral-500 text-sm ml-2">- 6 templates pra clonar</span></div>
+        </button><div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+          <div><span class="text-purple-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Você sai com 6 cadeias prontas pra adaptar: conteúdo, pesquisa, atendimento, financeiro, RH, vendas. Cada uma com etapas mapeadas.</p></div>
+          <div><span class="text-purple-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Em vez de inventar a roda, você adapta. Cada template economiza 8h de trabalho de design.</p></div>
+          <div><span class="text-purple-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Template library · Pattern matching · Adaptação · Best practice.</p></div>
+        </div></div></div>
+      </div>
+      <div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+        <button onclick="openModal('modal-3-4')" class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors">Ver em Modal</button>
+        <a href="modulo-3-4.html" class="px-4 py-2 text-sm bg-purple-600 hover:bg-purple-500 text-white rounded-lg transition-colors">Ver Completo</a>
+      </div>
+    </div>
+
+    <!-- MÓDULO 3.5 -->
+    <div id="modulo-3-5" class="bg-dark-800 rounded-xl border border-dark-600 mb-6">
+      <div class="p-6 border-b border-dark-600">
+        <div class="flex items-center justify-between mb-2"><span class="text-purple-400 font-bold">3.5</span><span class="text-xs text-neutral-500">~120 min</span></div>
+        <h3 class="text-2xl font-bold mb-2">🔌 Integração com sua vida</h3>
+        <p class="text-neutral-400 text-sm">Conectar IA com e-mail, agenda, planilhas e mensageria. A IA deixa de ser site separado e vira sistema operacional.</p>
+      </div>
+      <div class="divide-y divide-dark-600">
+        <div class="topic-item"><button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+          <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span><span class="text-lg">📧</span>
+          <div><span class="font-medium">E-mail: filtros, respostas, triagem</span><span class="text-neutral-500 text-sm ml-2">- Onde IA devolve mais horas</span></div>
+        </button><div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+          <div><span class="text-purple-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Agentes que leem inbox, classificam, esboçam resposta, agendam follow-up. Você só revisa e clica enviar. Inbox-zero virou padrão.</p></div>
+          <div><span class="text-purple-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">E-mail come 1-2h por dia da maioria dos profissionais. Devolver isso = 5-10h/semana de ganho líquido.</p></div>
+          <div><span class="text-purple-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Inbox automation · Triagem · Draft AI · Smart filters.</p></div>
+        </div></div></div>
+        <div class="topic-item"><button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+          <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span><span class="text-lg">📅</span>
+          <div><span class="font-medium">Agenda</span><span class="text-neutral-500 text-sm ml-2">- Agendamento, briefing pré-reunião</span></div>
+        </button><div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+          <div><span class="text-purple-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Agente que aceita pedidos de reunião, encontra horário, manda invite. E antes de cada reunião, prepara briefing com histórico do contato e dossiê.</p></div>
+          <div><span class="text-purple-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Você chega em toda reunião 10x mais preparado. Quem nunca teve essa vantagem, vê diferença imediata em decisão e fechamento.</p></div>
+          <div><span class="text-purple-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Scheduler · Pre-meeting brief · Context loading · Dossiê automático.</p></div>
+        </div></div></div>
+        <div class="topic-item"><button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+          <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span><span class="text-lg">📄</span>
+          <div><span class="font-medium">Docs e planilhas</span><span class="text-neutral-500 text-sm ml-2">- Análise, geração, atualização</span></div>
+        </button><div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+          <div><span class="text-purple-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">IA lê PDF, planilha, Doc — extrai insight, gera resumo, preenche campo. Atualizações em massa, conciliação, comparação de versão tudo automatizado.</p></div>
+          <div><span class="text-purple-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Maior parte do trabalho administrativo está em docs e planilhas. Quem automatiza isso vira 10x mais produtivo sem trocar de função.</p></div>
+          <div><span class="text-purple-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Document processing · Spreadsheet automation · Bulk update · Reconciliation.</p></div>
+        </div></div></div>
+        <div class="topic-item"><button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+          <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span><span class="text-lg">🎯</span>
+          <div><span class="font-medium">Orquestração diária</span><span class="text-neutral-500 text-sm ml-2">- Calendário + tarefa + foco</span></div>
+        </button><div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+          <div><span class="text-purple-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Agente que pega sua lista de tarefas, agenda, e energia disponível — propõe o plano do dia. Reorganiza quando algo muda. Você nunca mais perde foco.</p></div>
+          <div><span class="text-purple-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Foco é o ativo mais escasso do profissional moderno. IA orquestrando seu dia preserva esse ativo.</p></div>
+          <div><span class="text-purple-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Time blocking · Daily planner · Energy management · Re-planning automático.</p></div>
+        </div></div></div>
+        <div class="topic-item"><button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+          <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">5</span><span class="text-lg">💬</span>
+          <div><span class="font-medium">Mensageria assistida</span><span class="text-neutral-500 text-sm ml-2">- WhatsApp business, Slack, Telegram</span></div>
+        </button><div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+          <div><span class="text-purple-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Agente responde mensagens repetitivas, classifica urgência, escala pra você quando precisa. Atendimento que parece humano, mas custa 1/20.</p></div>
+          <div><span class="text-purple-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Pra empreendedor é diferencial competitivo. Pra profissional que atende cliente, é multiplicador. Pra todo mundo, é margem.</p></div>
+          <div><span class="text-purple-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Chatbot · Triagem · Escalonamento · Persona consistente.</p></div>
+        </div></div></div>
+        <div class="topic-item"><button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+          <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">6</span><span class="text-lg">🎛️</span>
+          <div><span class="font-medium">O painel CAIP</span><span class="text-neutral-500 text-sm ml-2">- Sua central pessoal de fluxos</span></div>
+        </button><div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+          <div><span class="text-purple-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Um painel onde você vê: fluxos rodando, tarefas pendentes de aprovação, métricas (tempo economizado, valor gerado). Pode ser Notion, Airtable ou app dedicado.</p></div>
+          <div><span class="text-purple-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Sem painel, você esquece fluxos rodando. Com painel, você opera sua "empresa de 1" como CEO.</p></div>
+          <div><span class="text-purple-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Dashboard pessoal · Comando central · Métricas de operação · Visibilidade total.</p></div>
+        </div></div></div>
+      </div>
+      <div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+        <button onclick="openModal('modal-3-5')" class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors">Ver em Modal</button>
+        <a href="modulo-3-5.html" class="px-4 py-2 text-sm bg-purple-600 hover:bg-purple-500 text-white rounded-lg transition-colors">Ver Completo</a>
+      </div>
+    </div>
+
+    <!-- MÓDULO 3.6 -->
+    <div id="modulo-3-6" class="bg-dark-800 rounded-xl border border-dark-600 mb-6">
+      <div class="p-6 border-b border-dark-600">
+        <div class="flex items-center justify-between mb-2"><span class="text-purple-400 font-bold">3.6</span><span class="text-xs text-neutral-500">~100 min</span></div>
+        <h3 class="text-2xl font-bold mb-2">📚 Memória organizacional</h3>
+        <p class="text-neutral-400 text-sm">A base que multiplica todo o resto. Documentação viva que faz a IA chegar calibrada, sem você ter que repetir contexto.</p>
+      </div>
+      <div class="divide-y divide-dark-600">
+        <div class="topic-item"><button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+          <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span><span class="text-lg">✍️</span>
+          <div><span class="font-medium">Documentar de baixo atrito</span><span class="text-neutral-500 text-sm ml-2">- Como criar hábito sustentável</span></div>
+        </button><div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+          <div><span class="text-purple-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Sistema simples: arquivo de texto, regra de "se vou explicar a alguém, vira doc". 5 min/dia. Em 3 meses, vira biblioteca completa.</p></div>
+          <div><span class="text-purple-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Documentação chata morre. Documentação leve sobrevive. Saber tornar atrito zero é o que faz a memória existir.</p></div>
+          <div><span class="text-purple-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Low-friction doc · Capture-as-you-go · 5-min rule · Atrito zero.</p></div>
+        </div></div></div>
+        <div class="topic-item"><button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+          <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span><span class="text-lg">📁</span>
+          <div><span class="font-medium">AGENTS.md, CONTEXT.md, README.md</span><span class="text-neutral-500 text-sm ml-2">- A trindade do CAIP</span></div>
+        </button><div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+          <div><span class="text-purple-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">3 arquivos-base: AGENTS.md (regras pra IA), CONTEXT.md (background do projeto/área), README.md (visão geral). Padrão emergente, super eficiente.</p></div>
+          <div><span class="text-purple-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Adotar esse padrão hoje te coloca à frente de 95% dos profissionais. Vai virar default da indústria nos próximos anos.</p></div>
+          <div><span class="text-purple-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">AGENTS.md · CONTEXT.md · README · Padrão emergente · Convention over config.</p></div>
+        </div></div></div>
+        <div class="topic-item"><button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+          <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span><span class="text-lg">🏷️</span>
+          <div><span class="font-medium">Convenções de nomeação</span><span class="text-neutral-500 text-sm ml-2">- IA encontra o que precisa</span></div>
+        </button><div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+          <div><span class="text-purple-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Padrão claro: pasta por domínio, nome descritivo, data quando relevante. Ex: clientes/2026-03-empresa-X/proposta-v2.md.</p></div>
+          <div><span class="text-purple-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">IA é boa em buscar, péssima em adivinhar onde está. Nomeação boa = recuperação rápida.</p></div>
+          <div><span class="text-purple-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Naming convention · Folder structure · Discoverability · Slug semântico.</p></div>
+        </div></div></div>
+        <div class="topic-item"><button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+          <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span><span class="text-lg">📖</span>
+          <div><span class="font-medium">Bases de conhecimento por domínio</span><span class="text-neutral-500 text-sm ml-2">- Uma KB para cada área</span></div>
+        </button><div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+          <div><span class="text-purple-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Separa por domínio: clientes, processos, marketing, financeiro, pessoal. Cada base alimenta seu projeto/Gem/agente específico, sem confusão.</p></div>
+          <div><span class="text-purple-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Misturar tudo dá IA confusa. Separar dá IA especialista. Diferença sentida no primeiro uso.</p></div>
+          <div><span class="text-purple-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Domain-driven KB · Separation of concerns · Specialized retrieval · Project/Gem por área.</p></div>
+        </div></div></div>
+        <div class="topic-item"><button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+          <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">5</span><span class="text-lg">🔍</span>
+          <div><span class="font-medium">Recuperação automática (RAG)</span><span class="text-neutral-500 text-sm ml-2">- IA busca no seu material sozinha</span></div>
+        </button><div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+          <div><span class="text-purple-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Em vez de você anexar PDFs toda vez, o sistema busca na sua base por similaridade e injeta no contexto. Magia que parece magia.</p></div>
+          <div><span class="text-purple-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">RAG é a forma mais escalável de manter contexto. Sem ele, você re-cola material toda hora. Com ele, IA "lembra" tudo.</p></div>
+          <div><span class="text-purple-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Retrieval · Embedding · Vector store · Chunking · Re-rank.</p></div>
+        </div></div></div>
+        <div class="topic-item"><button onclick="toggleTopic(this)" class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left">
+          <span class="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold flex items-center justify-center flex-shrink-0">6</span><span class="text-lg">🌱</span>
+          <div><span class="font-medium">Evolução contínua</span><span class="text-neutral-500 text-sm ml-2">- A memória cresce com você</span></div>
+        </button><div class="topic-explanation px-6 pb-4"><div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+          <div><span class="text-purple-400 font-semibold">O que é:</span><p class="text-neutral-300 text-sm">Rotina semanal de 30 min: o que aprendi? Que decisão tomei? Que prompt funcionou bem? Adiciona na memória. Composição ao longo dos meses.</p></div>
+          <div><span class="text-purple-400 font-semibold">Por que aprender:</span><p class="text-neutral-300 text-sm">Memória estagnada vira lápide. Memória viva vira diferencial composto. Em 12 meses, sua AGI pessoal é única no mundo.</p></div>
+          <div><span class="text-purple-400 font-semibold">Conceitos-chave:</span><p class="text-neutral-300 text-sm">Compounding · Manutenção semanal · Knowledge management · Capital pessoal.</p></div>
+        </div></div></div>
+      </div>
+      <div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+        <button onclick="openModal('modal-3-6')" class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors">Ver em Modal</button>
+        <a href="modulo-3-6.html" class="px-4 py-2 text-sm bg-purple-600 hover:bg-purple-500 text-white rounded-lg transition-colors">Ver Completo</a>
+      </div>
+    </div>
+
+    <div class="flex flex-col sm:flex-row gap-4 mt-12">
+      <a href="../trilha2/index.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">← Trilha 2 · Command</a>
+      <a href="../trilha4/index.html" class="flex-1 text-center px-6 py-3 bg-purple-600 text-white rounded-lg font-semibold hover:bg-purple-500 transition-colors">Próxima Trilha · Practice →</a>
+    </div>
+
+  </main>
+
+  <div id="modal-3-1" class="modal hidden fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/80" onclick="if(event.target === this) closeModal()"><div class="bg-dark-800 rounded-xl w-full max-w-6xl h-[95vh] flex flex-col border border-dark-600"><div class="p-4 border-b border-dark-600 flex justify-between items-center flex-shrink-0"><div class="flex items-center space-x-3"><span class="text-purple-400 font-bold">3.1</span><span class="font-semibold">Do chat ao agente-funcionário</span></div><button onclick="closeModal()" class="text-neutral-400 hover:text-white text-2xl leading-none">&times;</button></div><iframe src="modulo-3-1.html" class="flex-1 w-full rounded-b-xl"></iframe></div></div>
+  <div id="modal-3-2" class="modal hidden fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/80" onclick="if(event.target === this) closeModal()"><div class="bg-dark-800 rounded-xl w-full max-w-6xl h-[95vh] flex flex-col border border-dark-600"><div class="p-4 border-b border-dark-600 flex justify-between items-center flex-shrink-0"><div class="flex items-center space-x-3"><span class="text-purple-400 font-bold">3.2</span><span class="font-semibold">Mapeando o que automatizar</span></div><button onclick="closeModal()" class="text-neutral-400 hover:text-white text-2xl leading-none">&times;</button></div><iframe src="modulo-3-2.html" class="flex-1 w-full rounded-b-xl"></iframe></div></div>
+  <div id="modal-3-3" class="modal hidden fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/80" onclick="if(event.target === this) closeModal()"><div class="bg-dark-800 rounded-xl w-full max-w-6xl h-[95vh] flex flex-col border border-dark-600"><div class="p-4 border-b border-dark-600 flex justify-between items-center flex-shrink-0"><div class="flex items-center space-x-3"><span class="text-purple-400 font-bold">3.3</span><span class="font-semibold">Seu primeiro fluxo</span></div><button onclick="closeModal()" class="text-neutral-400 hover:text-white text-2xl leading-none">&times;</button></div><iframe src="modulo-3-3.html" class="flex-1 w-full rounded-b-xl"></iframe></div></div>
+  <div id="modal-3-4" class="modal hidden fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/80" onclick="if(event.target === this) closeModal()"><div class="bg-dark-800 rounded-xl w-full max-w-6xl h-[95vh] flex flex-col border border-dark-600"><div class="p-4 border-b border-dark-600 flex justify-between items-center flex-shrink-0"><div class="flex items-center space-x-3"><span class="text-purple-400 font-bold">3.4</span><span class="font-semibold">Agentes em cadeia</span></div><button onclick="closeModal()" class="text-neutral-400 hover:text-white text-2xl leading-none">&times;</button></div><iframe src="modulo-3-4.html" class="flex-1 w-full rounded-b-xl"></iframe></div></div>
+  <div id="modal-3-5" class="modal hidden fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/80" onclick="if(event.target === this) closeModal()"><div class="bg-dark-800 rounded-xl w-full max-w-6xl h-[95vh] flex flex-col border border-dark-600"><div class="p-4 border-b border-dark-600 flex justify-between items-center flex-shrink-0"><div class="flex items-center space-x-3"><span class="text-purple-400 font-bold">3.5</span><span class="font-semibold">Integração com sua vida</span></div><button onclick="closeModal()" class="text-neutral-400 hover:text-white text-2xl leading-none">&times;</button></div><iframe src="modulo-3-5.html" class="flex-1 w-full rounded-b-xl"></iframe></div></div>
+  <div id="modal-3-6" class="modal hidden fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/80" onclick="if(event.target === this) closeModal()"><div class="bg-dark-800 rounded-xl w-full max-w-6xl h-[95vh] flex flex-col border border-dark-600"><div class="p-4 border-b border-dark-600 flex justify-between items-center flex-shrink-0"><div class="flex items-center space-x-3"><span class="text-purple-400 font-bold">3.6</span><span class="font-semibold">Memória organizacional</span></div><button onclick="closeModal()" class="text-neutral-400 hover:text-white text-2xl leading-none">&times;</button></div><iframe src="modulo-3-6.html" class="flex-1 w-full rounded-b-xl"></iframe></div></div>
+
+  <footer class="border-t border-dark-600 py-8 mt-16">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm">
+      <p>CAIP — Certified AI Professional · 2026 · <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300">INEMA.CLUB</a></p>
+    </div>
+  </footer>
+
+  <script>
+    function toggleTopic(button) {
+      const topicItem = button.closest('.topic-item');
+      const explanation = topicItem.querySelector('.topic-explanation');
+      const moduleCard = button.closest('.bg-dark-800');
+      moduleCard.querySelectorAll('.topic-explanation.active').forEach(exp => { if (exp !== explanation) exp.classList.remove('active'); });
+      explanation.classList.toggle('active');
+    }
+    function openModal(modalId) { const modal = document.getElementById(modalId); if (modal) { modal.classList.remove('hidden'); document.body.style.overflow = 'hidden'; } }
+    function closeModal() { document.querySelectorAll('.modal').forEach(m => m.classList.add('hidden')); document.body.style.overflow = 'auto'; }
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
+
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+    const html = document.documentElement;
+    if (localStorage.getItem('theme') === 'light' || (!localStorage.getItem('theme') && !html.classList.contains('dark'))) {
+      themeToggleDarkIcon.classList.remove('hidden'); html.classList.remove('dark');
+    } else { themeToggleLightIcon.classList.remove('hidden'); }
+    themeToggle.addEventListener('click', () => {
+      themeToggleDarkIcon.classList.toggle('hidden'); themeToggleLightIcon.classList.toggle('hidden');
+      html.classList.toggle('dark'); localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+    });
+  </script>
+</body>
+</html>
