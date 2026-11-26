@@ -6,9 +6,9 @@
 </div>
 
 
-Site oficial da certificaêÂ§êÂ£o CAIP. Formato INEMA.CLUB.
+Site oficial da certificaêÂ§êÂ£o CAIP. Formato ARCKHÉ AI.
 
-**Live:** https://inematds.github.io/prof2031CAIP/
+**Live:** https://linnoff88-dev.github.io/arckhe-/
 
 ## Estrutura
 
@@ -24,13 +24,13 @@ Site oficial da certificaêÂ§êÂ£o CAIP. Formato INEMA.CLUB.
     ê¢ââê¢ââ¬ê¢ââ¬ trilha6/  # Specialist (Rose)
 ```
 
-<!-- inema-backlink:v1 -->
-## Mais no INEMA.CLUB
+<!-- ARCKHÉ-backlink:v1 -->
+## Mais no ARCKHÉ AI
 
-- [Ficha completa deste curso](https://www.inema.club/cursos/92-caip-certified-ai-professional/)
-- [Guia: como aprender inteligêÂªncia artificial](https://www.inema.club/aprender-inteligencia-artificial/)
-- [Todos os cursos](https://www.inema.club/cursos/)
-<!-- /inema-backlink:v1 -->
+- [Ficha completa deste curso](https://www.ARCKHÉ AI/cursos/92-caip-certified-ai-professional/)
+- [Guia: como aprender inteligêÂªncia artificial](https://www.ARCKHÉ AI/aprender-inteligencia-artificial/)
+- [Todos os cursos](https://www.ARCKHÉ AI/cursos/)
+<!-- /ARCKHÉ-backlink:v1 -->
 
 ---
 
