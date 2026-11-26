@@ -1,4 +1,4 @@
-﻿# CAIP â€” Certified AI Professional
+ï»¿# CAIP ê¢â¬â Certified AI Professional
 
 <div align="center">
   <img src="capa/logo.svg" alt="Arckhé AI" height="48" />
@@ -6,7 +6,7 @@
 </div>
 
 
-Site oficial da certificaÃ§Ã£o CAIP. Formato INEMA.CLUB.
+Site oficial da certificaêÂ§êÂ£o CAIP. Formato INEMA.CLUB.
 
 **Live:** https://inematds.github.io/prof2031CAIP/
 
@@ -14,21 +14,21 @@ Site oficial da certificaÃ§Ã£o CAIP. Formato INEMA.CLUB.
 
 ```
 .
-â”œâ”€â”€ index.html                # Landing principal
-â””â”€â”€ curso/
-    â”œâ”€â”€ trilha1/  # Foundation (Emerald)
-    â”œâ”€â”€ trilha2/  # Command (Blue)
-    â”œâ”€â”€ trilha3/  # Agents (Purple)
-    â”œâ”€â”€ trilha4/  # Practice (Amber)
-    â”œâ”€â”€ trilha5/  # Capstone (Teal)
-    â””â”€â”€ trilha6/  # Specialist (Rose)
+ê¢âÅê¢ââ¬ê¢ââ¬ index.html                # Landing principal
+ê¢ââê¢ââ¬ê¢ââ¬ curso/
+    ê¢âÅê¢ââ¬ê¢ââ¬ trilha1/  # Foundation (Emerald)
+    ê¢âÅê¢ââ¬ê¢ââ¬ trilha2/  # Command (Blue)
+    ê¢âÅê¢ââ¬ê¢ââ¬ trilha3/  # Agents (Purple)
+    ê¢âÅê¢ââ¬ê¢ââ¬ trilha4/  # Practice (Amber)
+    ê¢âÅê¢ââ¬ê¢ââ¬ trilha5/  # Capstone (Teal)
+    ê¢ââê¢ââ¬ê¢ââ¬ trilha6/  # Specialist (Rose)
 ```
 
 <!-- inema-backlink:v1 -->
 ## Mais no INEMA.CLUB
 
 - [Ficha completa deste curso](https://www.inema.club/cursos/92-caip-certified-ai-professional/)
-- [Guia: como aprender inteligÃªncia artificial](https://www.inema.club/aprender-inteligencia-artificial/)
+- [Guia: como aprender inteligêÂªncia artificial](https://www.inema.club/aprender-inteligencia-artificial/)
 - [Todos os cursos](https://www.inema.club/cursos/)
 <!-- /inema-backlink:v1 -->
 
